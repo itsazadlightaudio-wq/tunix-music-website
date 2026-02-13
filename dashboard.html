@@ -5,16 +5,40 @@
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <title>Dashboard - Tunix Music Bot</title>
     <link rel="stylesheet" href="style.css">
+    <link rel="icon" type="image/x-icon" href="public/assets/mainlogo.png">
 </head>
 <body>
     <!-- Navbar -->
-    <nav class="navbar">...</nav>
+    <nav class="navbar">
+        <div class="nav-container">
+            <div class="nav-logo">
+                <img src="public/assets/mainlogo.png" alt="Tunix Music Bot Logo" class="logo-img">
+                <span class="logo-text">Tunix Music</span>
+            </div>
+            <div class="nav-menu" id="navMenu">
+                <a href="index.html">Home</a>
+                <a href="features.html">Features</a>
+                <a href="commands.html">Commands</a>
+                <a href="more-bots.html">More Bots</a>
+                <a href="support.html">Support</a>
+                <a href="dashboard.html" class="active">Dashboard</a>
+            </div>
+            <div class="nav-buttons">
+                <a href="https://discord.com/oauth2/authorize?client_id=1468659910941343798" class="btn-primary" target="_blank">Add to Discord</a>
+            </div>
+            <div class="hamburger" id="hamburger">
+                <span></span>
+                <span></span>
+                <span></span>
+            </div>
+        </div>
+    </nav>
 
     <!-- Page Header -->
     <section class="page-header">
         <div class="container">
             <h1>Dashboard</h1>
-            <p>Manage your bot settings</p>
+            <p>Manage your bot settings and view statistics</p>
         </div>
     </section>
 
@@ -24,21 +48,55 @@
             <div class="dashboard-coming-soon">
                 <div class="coming-soon-icon">⚙️</div>
                 <h2>Dashboard Coming Soon</h2>
-                <p>We're working hard to bring you a powerful dashboard to manage your bot settings. Stay tuned!</p>
+                <p>We're working hard to bring you a powerful dashboard to manage your bot settings. Stay tuned for these features:</p>
                 <div class="coming-soon-features">
                     <div class="feature-tag">Server Settings</div>
                     <div class="feature-tag">Queue Management</div>
                     <div class="feature-tag">Playlist Editor</div>
-                    <div class="feature-tag">DJ Roles</div>
-                    <div class="feature-tag">Analytics</div>
+                    <div class="feature-tag">DJ Role Setup</div>
+                    <div class="feature-tag">Usage Analytics</div>
                     <div class="feature-tag">Custom Commands</div>
+                    <div class="feature-tag">Volume Presets</div>
+                    <div class="feature-tag">Blacklist Channels</div>
+                    <div class="feature-tag">24/7 Mode</div>
+                    <div class="feature-tag">Statistics</div>
+                    <div class="feature-tag">Backup Settings</div>
+                    <div class="feature-tag">Multi-server View</div>
                 </div>
+                <p class="notify-text">Get notified when dashboard launches:</p>
                 <a href="https://discord.gg/KcWjna2x" class="btn-primary">Join for Updates</a>
             </div>
         </div>
     </section>
 
     <!-- Footer -->
-    <footer class="footer">...</footer>
+    <footer class="footer">
+        <div class="container">
+            <div class="footer-content">
+                <div class="footer-logo">
+                    <img src="public/assets/mainlogo.png" alt="Tunix Music Bot" class="footer-logo-img">
+                    <span>Tunix Music Bot</span>
+                </div>
+                <div class="footer-links">
+                    <a href="index.html">Home</a>
+                    <a href="features.html">Features</a>
+                    <a href="commands.html">Commands</a>
+                    <a href="more-bots.html">More Bots</a>
+                    <a href="support.html">Support</a>
+                    <a href="dashboard.html">Dashboard</a>
+                </div>
+                <div class="footer-social">
+                    <a href="https://discord.gg/KcWjna2x" target="_blank">Discord</a>
+                    <a href="#" target="_blank">Twitter</a>
+                    <a href="#" target="_blank">GitHub</a>
+                </div>
+            </div>
+            <div class="footer-bottom">
+                <p>© 2024 Tunix Music Bot. All rights reserved. Free forever.</p>
+            </div>
+        </div>
+    </footer>
+
+    <script src="script.js"></script>
 </body>
 </html>
