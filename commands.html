@@ -5,10 +5,34 @@
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <title>Commands - Tunix Music Bot</title>
     <link rel="stylesheet" href="style.css">
+    <link rel="icon" type="image/x-icon" href="public/assets/mainlogo.png">
 </head>
 <body>
     <!-- Navbar -->
-    <nav class="navbar">...</nav>
+    <nav class="navbar">
+        <div class="nav-container">
+            <div class="nav-logo">
+                <img src="public/assets/mainlogo.png" alt="Tunix Music Bot Logo" class="logo-img">
+                <span class="logo-text">Tunix Music</span>
+            </div>
+            <div class="nav-menu" id="navMenu">
+                <a href="index.html">Home</a>
+                <a href="features.html">Features</a>
+                <a href="commands.html" class="active">Commands</a>
+                <a href="more-bots.html">More Bots</a>
+                <a href="support.html">Support</a>
+                <a href="dashboard.html">Dashboard</a>
+            </div>
+            <div class="nav-buttons">
+                <a href="https://discord.com/oauth2/authorize?client_id=1468659910941343798" class="btn-primary" target="_blank">Add to Discord</a>
+            </div>
+            <div class="hamburger" id="hamburger">
+                <span></span>
+                <span></span>
+                <span></span>
+            </div>
+        </div>
+    </nav>
 
     <!-- Page Header -->
     <section class="page-header">
@@ -38,12 +62,16 @@
                             <span>Resume playback</span>
                         </div>
                         <div class="command-item">
+                            <code>/stop</code>
+                            <span>Stop player and clear queue</span>
+                        </div>
+                        <div class="command-item">
                             <code>/skip</code>
                             <span>Skip current song</span>
                         </div>
                         <div class="command-item">
-                            <code>/stop</code>
-                            <span>Stop player and clear queue</span>
+                            <code>/previous</code>
+                            <span>Play previous song</span>
                         </div>
                         <div class="command-item">
                             <code>/queue</code>
@@ -56,6 +84,10 @@
                         <div class="command-item">
                             <code>/volume [1-200]</code>
                             <span>Adjust volume</span>
+                        </div>
+                        <div class="command-item">
+                            <code>/seek [time]</code>
+                            <span>Jump to specific time</span>
                         </div>
                     </div>
                 </div>
@@ -83,6 +115,10 @@
                             <code>/move [from] [to]</code>
                             <span>Move songs in queue</span>
                         </div>
+                        <div class="command-item">
+                            <code>/jump [position]</code>
+                            <span>Jump to a song in queue</span>
+                        </div>
                     </div>
                 </div>
 
@@ -108,6 +144,10 @@
                         <div class="command-item">
                             <code>/favorites</code>
                             <span>View your favorite songs</span>
+                        </div>
+                        <div class="command-item">
+                            <code>/removefav</code>
+                            <span>Remove song from favorites</span>
                         </div>
                     </div>
                 </div>
@@ -139,6 +179,10 @@
                             <code>/ping</code>
                             <span>Check bot latency</span>
                         </div>
+                        <div class="command-item">
+                            <code>/invite</code>
+                            <span>Get bot invite link</span>
+                        </div>
                     </div>
                 </div>
             </div>
@@ -146,6 +190,33 @@
     </section>
 
     <!-- Footer -->
-    <footer class="footer">...</footer>
+    <footer class="footer">
+        <div class="container">
+            <div class="footer-content">
+                <div class="footer-logo">
+                    <img src="public/assets/mainlogo.png" alt="Tunix Music Bot" class="footer-logo-img">
+                    <span>Tunix Music Bot</span>
+                </div>
+                <div class="footer-links">
+                    <a href="index.html">Home</a>
+                    <a href="features.html">Features</a>
+                    <a href="commands.html">Commands</a>
+                    <a href="more-bots.html">More Bots</a>
+                    <a href="support.html">Support</a>
+                    <a href="dashboard.html">Dashboard</a>
+                </div>
+                <div class="footer-social">
+                    <a href="https://discord.gg/KcWjna2x" target="_blank">Discord</a>
+                    <a href="#" target="_blank">Twitter</a>
+                    <a href="#" target="_blank">GitHub</a>
+                </div>
+            </div>
+            <div class="footer-bottom">
+                <p>© 2024 Tunix Music Bot. All rights reserved. Free forever.</p>
+            </div>
+        </div>
+    </footer>
+
+    <script src="script.js"></script>
 </body>
 </html>
