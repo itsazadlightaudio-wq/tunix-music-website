@@ -5,9 +5,8 @@
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <title>Tunix Music Bot - Professional Discord Music Bot</title>
     <link rel="stylesheet" href="style.css">
-    <link rel="icon" type="image/x-icon" href="/favicon.ico">
+    <link rel="icon" type="image/x-icon" href="/assets/mainlogo.png">
     <meta name="description" content="Tunix Music Bot - Professional 24/7 Music Bot for Discord. High quality audio, multi-platform support, and completely free!">
-    <meta property="og:image" content="/assets/mainlogo.png">
 </head>
 <body>
     <!-- Navbar -->
@@ -18,15 +17,15 @@
                 <span class="logo-text">Tunix Music</span>
             </div>
             <div class="nav-menu" id="navMenu">
-                <a href="#home">Home</a>
-                <a href="#features">Features</a>
-                <a href="#commands">Commands</a>
-                <a href="#more-bots">More Bots</a>
-                <a href="#support">Support</a>
+                <a href="index.html" class="active">Home</a>
+                <a href="features.html">Features</a>
+                <a href="commands.html">Commands</a>
+                <a href="more-bots.html">More Bots</a>
+                <a href="support.html">Support</a>
+                <a href="dashboard.html">Dashboard</a>
             </div>
             <div class="nav-buttons">
                 <a href="https://discord.com/oauth2/authorize?client_id=1468659910941343798" class="btn-primary" target="_blank">Add to Discord</a>
-                <button class="btn-secondary" id="loginBtn">Dashboard</button>
             </div>
             <div class="hamburger" id="hamburger">
                 <span></span>
@@ -37,10 +36,10 @@
     </nav>
 
     <!-- Hero Section -->
-    <section id="home" class="hero">
+    <section class="hero">
         <div class="hero-container">
             <div class="hero-content">
-                <div class="hero-badge">🎵 Professional Music Bot</div>
+                <div class="hero-badge">Professional Music Bot</div>
                 <h1 class="hero-title">Tunix Music Bot</h1>
                 <p class="hero-subtitle">High-quality 24/7 music streaming for your Discord server</p>
                 <div class="hero-stats">
@@ -59,10 +58,10 @@
                 </div>
                 <div class="hero-buttons">
                     <a href="https://discord.com/oauth2/authorize?client_id=1468659910941343798" class="btn-primary btn-large" target="_blank">
-                        ➕ Add to Discord
+                        + Add to Discord
                     </a>
-                    <a href="#commands" class="btn-secondary btn-large">
-                        📋 View Commands
+                    <a href="commands.html" class="btn-secondary btn-large">
+                        ⌘ View Commands
                     </a>
                 </div>
             </div>
@@ -72,174 +71,59 @@
         </div>
     </section>
 
-    <!-- Features Section -->
-    <section id="features" class="features">
+    <!-- Features Preview -->
+    <section class="features-preview">
         <div class="container">
             <h2 class="section-title">Why Choose Tunix Music?</h2>
             <p class="section-subtitle">Everything you need for the perfect music experience</p>
             
             <div class="features-grid">
                 <div class="feature-card">
-                    <div class="feature-icon">🎵</div>
+                    <div class="feature-icon">♪</div>
                     <h3>High Quality Audio</h3>
                     <p>256kbps crystal clear sound with no buffering</p>
                 </div>
                 <div class="feature-card">
-                    <div class="feature-icon">🌐</div>
+                    <div class="feature-icon">◉</div>
                     <h3>Multi-Platform</h3>
                     <p>YouTube, Spotify, SoundCloud & more</p>
                 </div>
                 <div class="feature-card">
-                    <div class="feature-icon">⚡</div>
+                    <div class="feature-icon">⟳</div>
                     <h3>24/7 Uptime</h3>
                     <p>Never goes offline, always ready to play</p>
                 </div>
                 <div class="feature-card">
-                    <div class="feature-icon">🎮</div>
+                    <div class="feature-icon">⌨️</div>
                     <h3>Easy Controls</h3>
                     <p>Buttons & Slash commands for easy use</p>
                 </div>
                 <div class="feature-card">
-                    <div class="feature-icon">📊</div>
+                    <div class="feature-icon">☰</div>
                     <h3>Queue Management</h3>
                     <p>Shuffle, loop, save queues</p>
                 </div>
                 <div class="feature-card">
                     <div class="feature-icon">🔊</div>
                     <h3>Volume Control</h3>
-                    <p>Precise volume adjustment</p>
+                    <p>Precise volume adjustment from 1-200%</p>
                 </div>
+            </div>
+            <div class="center-btn">
+                <a href="features.html" class="btn-secondary">View All Features →</a>
             </div>
         </div>
     </section>
 
-    <!-- Commands Section -->
-    <section id="commands" class="commands">
+    <!-- CTA Section -->
+    <section class="cta">
         <div class="container">
-            <h2 class="section-title">Bot Commands</h2>
-            <p class="section-subtitle">Simple commands for powerful control</p>
-
-            <div class="commands-grid">
-                <div class="command-category">
-                    <h3>🎵 Music Commands</h3>
-                    <ul>
-                        <li><code>/play [song]</code> - Play any song</li>
-                        <li><code>/pause</code> - Pause current track</li>
-                        <li><code>/resume</code> - Resume playback</li>
-                        <li><code>/skip</code> - Skip current song</li>
-                        <li><code>/stop</code> - Stop player</li>
-                        <li><code>/queue</code> - View queue</li>
-                        <li><code>/volume [1-100]</code> - Adjust volume</li>
-                    </ul>
-                </div>
-
-                <div class="command-category">
-                    <h3>📋 Playlist Commands</h3>
-                    <ul>
-                        <li><code>/savequeue [name]</code> - Save queue</li>
-                        <li><code>/loadqueue [name]</code> - Load queue</li>
-                        <li><code>/playlists</code> - Your playlists</li>
-                        <li><code>/deletequeue [name]</code> - Delete queue</li>
-                    </ul>
-                </div>
-
-                <div class="command-category">
-                    <h3>⚙️ Settings</h3>
-                    <ul>
-                        <li><code>/settings</code> - Bot settings</li>
-                        <li><code>/help</code> - Help menu</li>
-                        <li><code>/ping</code> - Bot latency</li>
-                        <li><code>/stats</code> - Bot statistics</li>
-                    </ul>
-                </div>
-            </div>
-        </div>
-    </section>
-
-    <!-- More Bots Section (Coming Soon) -->
-    <section id="more-bots" class="more-bots">
-        <div class="container">
-            <h2 class="section-title">More from Tunix</h2>
-            <p class="section-subtitle">Coming soon - More bots for your server</p>
-
-            <div class="bots-grid">
-                <div class="bot-card coming-soon">
-                    <div class="bot-icon">🔒</div>
-                    <h3>Tunix Security</h3>
-                    <p>Advanced protection for your server</p>
-                    <span class="badge">Coming Soon</span>
-                    <button class="btn-notify" onclick="notifyMe('security')">🔔 Notify Me</button>
-                </div>
-
-                <div class="bot-card coming-soon">
-                    <div class="bot-icon">🤖</div>
-                    <h3>Tunix AI</h3>
-                    <p>AI chatbot with GPT-4</p>
-                    <span class="badge">Coming Soon</span>
-                    <button class="btn-notify" onclick="notifyMe('ai')">🔔 Notify Me</button>
-                </div>
-
-                <div class="bot-card coming-soon">
-                    <div class="bot-icon">⚖️</div>
-                    <h3>Tunix Moderation</h3>
-                    <p>Complete moderation toolkit</p>
-                    <span class="badge">Coming Soon</span>
-                    <button class="btn-notify" onclick="notifyMe('moderation')">🔔 Notify Me</button>
-                </div>
-
-                <div class="bot-card coming-soon">
-                    <div class="bot-icon">🎮</div>
-                    <h3>Tunix Games</h3>
-                    <p>Fun games for your community</p>
-                    <span class="badge">Coming Soon</span>
-                    <button class="btn-notify" onclick="notifyMe('games')">🔔 Notify Me</button>
-                </div>
-
-                <div class="bot-card coming-soon">
-                    <div class="bot-icon">💰</div>
-                    <h3>Tunix Economy</h3>
-                    <p>Economy system with shop</p>
-                    <span class="badge">Coming Soon</span>
-                    <button class="btn-notify" onclick="notifyMe('economy')">🔔 Notify Me</button>
-                </div>
-            </div>
-        </div>
-    </section>
-
-    <!-- Add Bot Section -->
-    <section class="add-bot">
-        <div class="container">
-            <div class="add-bot-card">
+            <div class="cta-card">
                 <h2>Ready to add Tunix Music?</h2>
                 <p>Join 5000+ servers already using Tunix Music Bot</p>
                 <a href="https://discord.com/oauth2/authorize?client_id=1468659910941343798" class="btn-primary btn-large" target="_blank">
-                    ➕ Add Tunix Music to Discord
+                    + Add Tunix Music to Discord
                 </a>
-                <div class="permissions">
-                    <span>✅ Send Messages</span>
-                    <span>✅ Embed Links</span>
-                    <span>✅ Connect to Voice</span>
-                    <span>✅ Speak in Voice</span>
-                    <span>✅ Use Slash Commands</span>
-                </div>
-            </div>
-        </div>
-    </section>
-
-    <!-- Support Section -->
-    <section id="support" class="support">
-        <div class="container">
-            <div class="support-content">
-                <h2>Need Help?</h2>
-                <p>Join our support server for quick help</p>
-                <div class="support-buttons">
-                    <a href="https://discord.gg/KcWjna2x" class="btn-primary" target="_blank">
-                        💬 Join Support Server
-                    </a>
-                    <a href="#" class="btn-secondary">
-                        📚 Documentation
-                    </a>
-                </div>
             </div>
         </div>
     </section>
@@ -253,11 +137,12 @@
                     <span>Tunix Music Bot</span>
                 </div>
                 <div class="footer-links">
-                    <a href="#home">Home</a>
-                    <a href="#features">Features</a>
-                    <a href="#commands">Commands</a>
-                    <a href="#more-bots">More Bots</a>
-                    <a href="#support">Support</a>
+                    <a href="index.html">Home</a>
+                    <a href="features.html">Features</a>
+                    <a href="commands.html">Commands</a>
+                    <a href="more-bots.html">More Bots</a>
+                    <a href="support.html">Support</a>
+                    <a href="dashboard.html">Dashboard</a>
                 </div>
                 <div class="footer-social">
                     <a href="https://discord.gg/KcWjna2x" target="_blank">Discord</a>
@@ -266,23 +151,10 @@
                 </div>
             </div>
             <div class="footer-bottom">
-                <p>&copy; 2024 Tunix Music Bot. All rights reserved. Free forever.</p>
+                <p>© 2024 Tunix Music Bot. All rights reserved. Free forever.</p>
             </div>
         </div>
     </footer>
-
-    <!-- Dashboard Modal -->
-    <div id="dashboardModal" class="modal">
-        <div class="modal-content">
-            <span class="close">&times;</span>
-            <h2>Dashboard Login</h2>
-            <p>Login with Discord to manage your bot settings</p>
-            <button class="btn-primary" onclick="loginWithDiscord()">
-                🔐 Login with Discord
-            </button>
-            <p class="modal-note">Coming soon - Dashboard under development</p>
-        </div>
-    </div>
 
     <script src="script.js"></script>
 </body>
