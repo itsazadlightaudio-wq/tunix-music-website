@@ -5,10 +5,34 @@
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <title>More Bots - Tunix Ecosystem</title>
     <link rel="stylesheet" href="style.css">
+    <link rel="icon" type="image/x-icon" href="public/assets/mainlogo.png">
 </head>
 <body>
     <!-- Navbar -->
-    <nav class="navbar">...</nav>
+    <nav class="navbar">
+        <div class="nav-container">
+            <div class="nav-logo">
+                <img src="public/assets/mainlogo.png" alt="Tunix Music Bot Logo" class="logo-img">
+                <span class="logo-text">Tunix Music</span>
+            </div>
+            <div class="nav-menu" id="navMenu">
+                <a href="index.html">Home</a>
+                <a href="features.html">Features</a>
+                <a href="commands.html">Commands</a>
+                <a href="more-bots.html" class="active">More Bots</a>
+                <a href="support.html">Support</a>
+                <a href="dashboard.html">Dashboard</a>
+            </div>
+            <div class="nav-buttons">
+                <a href="https://discord.com/oauth2/authorize?client_id=1468659910941343798" class="btn-primary" target="_blank">Add to Discord</a>
+            </div>
+            <div class="hamburger" id="hamburger">
+                <span></span>
+                <span></span>
+                <span></span>
+            </div>
+        </div>
+    </nav>
 
     <!-- Page Header -->
     <section class="page-header">
@@ -25,85 +49,91 @@
                 <div class="bot-card-detailed coming-soon">
                     <div class="bot-icon-large">🔒</div>
                     <h3>Tunix Security</h3>
-                    <p class="bot-description">Advanced protection for your server with auto-moderation, anti-raid, and logging system.</p>
+                    <p class="bot-description">Advanced protection for your server with auto-moderation, anti-raid, and logging system. Keep your community safe from trolls and spam.</p>
                     <div class="bot-features">
                         <span>Auto-mod</span>
                         <span>Anti-raid</span>
                         <span>Logs</span>
+                        <span>Captcha</span>
                     </div>
                     <span class="status-badge">Coming Soon</span>
-                    <button class="btn-notify" onclick="notifyMe('security')">Notify when ready</button>
+                    <button class="btn-notify" data-bot="security">Notify when ready</button>
                 </div>
 
                 <div class="bot-card-detailed coming-soon">
                     <div class="bot-icon-large">🤖</div>
                     <h3>Tunix AI</h3>
-                    <p class="bot-description">AI chatbot with GPT-4 integration, image generation, and voice commands.</p>
+                    <p class="bot-description">AI chatbot with GPT-4 integration, image generation, and voice commands. Perfect for engaging conversations and creative content.</p>
                     <div class="bot-features">
                         <span>GPT-4</span>
                         <span>DALL-E</span>
                         <span>Voice</span>
+                        <span>Context</span>
                     </div>
                     <span class="status-badge">Coming Soon</span>
-                    <button class="btn-notify" onclick="notifyMe('ai')">Notify when ready</button>
+                    <button class="btn-notify" data-bot="ai">Notify when ready</button>
                 </div>
 
                 <div class="bot-card-detailed coming-soon">
                     <div class="bot-icon-large">⚖️</div>
                     <h3>Tunix Moderation</h3>
-                    <p class="bot-description">Complete moderation toolkit with warnings, mutes, bans, and case management.</p>
+                    <p class="bot-description">Complete moderation toolkit with warnings, mutes, bans, and case management. Streamline your server moderation workflow.</p>
                     <div class="bot-features">
                         <span>Warns</span>
                         <span>Mutes</span>
+                        <span>Bans</span>
                         <span>Cases</span>
                     </div>
                     <span class="status-badge">Coming Soon</span>
-                    <button class="btn-notify" onclick="notifyMe('moderation')">Notify when ready</button>
+                    <button class="btn-notify" data-bot="moderation">Notify when ready</button>
                 </div>
 
                 <div class="bot-card-detailed coming-soon">
                     <div class="bot-icon-large">🎮</div>
                     <h3>Tunix Games</h3>
-                    <p class="bot-description">Fun games for your community including trivia, economy, and mini-games.</p>
+                    <p class="bot-description">Fun games for your community including trivia, economy, and mini-games. Keep your members engaged and entertained.</p>
                     <div class="bot-features">
                         <span>Trivia</span>
                         <span>Economy</span>
                         <span>Mini-games</span>
+                        <span>Leaderboards</span>
                     </div>
                     <span class="status-badge">Coming Soon</span>
-                    <button class="btn-notify" onclick="notifyMe('games')">Notify when ready</button>
+                    <button class="btn-notify" data-bot="games">Notify when ready</button>
                 </div>
 
                 <div class="bot-card-detailed coming-soon">
                     <div class="bot-icon-large">💰</div>
                     <h3>Tunix Economy</h3>
-                    <p class="bot-description">Complete economy system with currency, shops, gambling, and leaderboards.</p>
+                    <p class="bot-description">Complete economy system with currency, shops, gambling, and leaderboards. Build a thriving virtual economy.</p>
                     <div class="bot-features">
                         <span>Currency</span>
                         <span>Shops</span>
+                        <span>Gambling</span>
                         <span>Leaderboards</span>
                     </div>
                     <span class="status-badge">Coming Soon</span>
-                    <button class="btn-notify" onclick="notifyMe('economy')">Notify when ready</button>
+                    <button class="btn-notify" data-bot="economy">Notify when ready</button>
                 </div>
 
                 <div class="bot-card-detailed coming-soon">
                     <div class="bot-icon-large">🎫</div>
                     <h3>Tunix Tickets</h3>
-                    <p class="bot-description">Advanced ticket system for support with categories, transcripts, and staff tools.</p>
+                    <p class="bot-description">Advanced ticket system for support with categories, transcripts, and staff tools. Professional support for your community.</p>
                     <div class="bot-features">
                         <span>Tickets</span>
                         <span>Transcripts</span>
                         <span>Categories</span>
+                        <span>Staff</span>
                     </div>
                     <span class="status-badge">Coming Soon</span>
-                    <button class="btn-notify" onclick="notifyMe('tickets')">Notify when ready</button>
+                    <button class="btn-notify" data-bot="tickets">Notify when ready</button>
                 </div>
             </div>
         </div>
     </section>
 
-    <!-- Notify Message -->
+    <!-- Notify Section -->
     <section class="notify-section">
         <div class="container">
             <div class="notify-card">
@@ -115,12 +145,33 @@
     </section>
 
     <!-- Footer -->
-    <footer class="footer">...</footer>
+    <footer class="footer">
+        <div class="container">
+            <div class="footer-content">
+                <div class="footer-logo">
+                    <img src="public/assets/mainlogo.png" alt="Tunix Music Bot" class="footer-logo-img">
+                    <span>Tunix Music Bot</span>
+                </div>
+                <div class="footer-links">
+                    <a href="index.html">Home</a>
+                    <a href="features.html">Features</a>
+                    <a href="commands.html">Commands</a>
+                    <a href="more-bots.html">More Bots</a>
+                    <a href="support.html">Support</a>
+                    <a href="dashboard.html">Dashboard</a>
+                </div>
+                <div class="footer-social">
+                    <a href="https://discord.gg/KcWjna2x" target="_blank">Discord</a>
+                    <a href="#" target="_blank">Twitter</a>
+                    <a href="#" target="_blank">GitHub</a>
+                </div>
+            </div>
+            <div class="footer-bottom">
+                <p>© 2024 Tunix Music Bot. All rights reserved. Free forever.</p>
+            </div>
+        </div>
+    </footer>
 
-    <script>
-        function notifyMe(botName) {
-            alert('✓ Thanks! We\'ll notify you when ' + botName + ' launches. Join our Discord for updates!');
-        }
-    </script>
+    <script src="script.js"></script>
 </body>
 </html>
