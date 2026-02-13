@@ -5,10 +5,34 @@
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <title>Features - Tunix Music Bot</title>
     <link rel="stylesheet" href="style.css">
+    <link rel="icon" type="image/x-icon" href="public/assets/mainlogo.png">
 </head>
 <body>
-    <!-- Navbar (same as index.html) -->
-    <nav class="navbar">...</nav>
+    <!-- Navbar -->
+    <nav class="navbar">
+        <div class="nav-container">
+            <div class="nav-logo">
+                <img src="public/assets/mainlogo.png" alt="Tunix Music Bot Logo" class="logo-img">
+                <span class="logo-text">Tunix Music</span>
+            </div>
+            <div class="nav-menu" id="navMenu">
+                <a href="index.html">Home</a>
+                <a href="features.html" class="active">Features</a>
+                <a href="commands.html">Commands</a>
+                <a href="more-bots.html">More Bots</a>
+                <a href="support.html">Support</a>
+                <a href="dashboard.html">Dashboard</a>
+            </div>
+            <div class="nav-buttons">
+                <a href="https://discord.com/oauth2/authorize?client_id=1468659910941343798" class="btn-primary" target="_blank">Add to Discord</a>
+            </div>
+            <div class="hamburger" id="hamburger">
+                <span></span>
+                <span></span>
+                <span></span>
+            </div>
+        </div>
+    </nav>
 
     <!-- Page Header -->
     <section class="page-header">
@@ -78,11 +102,66 @@
                         <p>Songs start playing in under 1 second. No delays, no waiting, just instant music.</p>
                     </div>
                 </div>
+                <div class="feature-item">
+                    <div class="feature-icon-large">📋</div>
+                    <div>
+                        <h3>Playlist Support</h3>
+                        <p>Load entire YouTube playlists or Spotify albums with a single command. Perfect for long listening sessions.</p>
+                    </div>
+                </div>
+                <div class="feature-item">
+                    <div class="feature-icon-large">🎚️</div>
+                    <div>
+                        <h3>Equalizer Presets</h3>
+                        <p>Choose from multiple EQ presets including Bass Boost, Classical, Dance, and more. Customize your sound.</p>
+                    </div>
+                </div>
+                <div class="feature-item">
+                    <div class="feature-icon-large">📊</div>
+                    <div>
+                        <h3>Server Statistics</h3>
+                        <p>Track music usage in your server. See most played songs, peak hours, and user activity.</p>
+                    </div>
+                </div>
+                <div class="feature-item">
+                    <div class="feature-icon-large">🔒</div>
+                    <div>
+                        <h3>DJ Role System</h3>
+                        <p>Assign DJ roles to trusted members. Control who can manage the music in your server.</p>
+                    </div>
+                </div>
             </div>
         </div>
     </section>
 
     <!-- Footer -->
-    <footer class="footer">...</footer>
+    <footer class="footer">
+        <div class="container">
+            <div class="footer-content">
+                <div class="footer-logo">
+                    <img src="public/assets/mainlogo.png" alt="Tunix Music Bot" class="footer-logo-img">
+                    <span>Tunix Music Bot</span>
+                </div>
+                <div class="footer-links">
+                    <a href="index.html">Home</a>
+                    <a href="features.html">Features</a>
+                    <a href="commands.html">Commands</a>
+                    <a href="more-bots.html">More Bots</a>
+                    <a href="support.html">Support</a>
+                    <a href="dashboard.html">Dashboard</a>
+                </div>
+                <div class="footer-social">
+                    <a href="https://discord.gg/KcWjna2x" target="_blank">Discord</a>
+                    <a href="#" target="_blank">Twitter</a>
+                    <a href="#" target="_blank">GitHub</a>
+                </div>
+            </div>
+            <div class="footer-bottom">
+                <p>© 2024 Tunix Music Bot. All rights reserved. Free forever.</p>
+            </div>
+        </div>
+    </footer>
+
+    <script src="script.js"></script>
 </body>
 </html>
