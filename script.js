@@ -1,3 +1,7 @@
+// ============================================
+// TUNIX MUSIC BOT - COMPLETE SCRIPT
+// ============================================
+
 // Mobile menu functionality
 const hamburger = document.getElementById('hamburger');
 const navMenu = document.getElementById('navMenu');
@@ -23,22 +27,62 @@ window.addEventListener('scroll', () => {
     if (window.scrollY > 50) {
         navbar.style.background = 'rgba(10, 10, 15, 0.98)';
         navbar.style.backdropFilter = 'blur(10px)';
+        navbar.style.boxShadow = '0 4px 20px rgba(0, 0, 0, 0.3)';
     } else {
         navbar.style.background = 'rgba(10, 10, 15, 0.95)';
         navbar.style.backdropFilter = 'blur(10px)';
+        navbar.style.boxShadow = 'none';
     }
 });
 
 // Active link highlighting based on current page
 const currentPage = window.location.pathname.split('/').pop() || 'index.html';
 document.querySelectorAll('.nav-menu a').forEach(link => {
-    const linkPage = link.getAttribute('href');
+    const linkPage = link.getAttribute('href').split('?')[0]; // Remove query params
     if (linkPage === currentPage) {
         link.classList.add('active');
     }
 });
 
-// Notify Me function for upcoming bots
+// ============================================
+// LOGO FIX - FORCE RELOAD WITH CACHE BUSTING
+// ============================================
+
+// Function to fix all logo images
+function fixLogoImages() {
+    console.log('🔧 Fixing logo images...');
+    
+    // Add timestamp to all logo images
+    document.querySelectorAll('img[src*="mainlogo.png"]').forEach(img => {
+        const currentSrc = img.getAttribute('src');
+        // Remove any existing query params and add new timestamp
+        const baseSrc = currentSrc.split('?')[0];
+        const newSrc = baseSrc + '?v=' + Date.now();
+        img.src = newSrc;
+        console.log('✅ Logo fixed:', newSrc);
+    });
+
+    // Fix favicon
+    const favicon = document.querySelector('link[rel="icon"]');
+    if (favicon) {
+        const currentHref = favicon.getAttribute('href');
+        const baseHref = currentHref.split('?')[0];
+        favicon.setAttribute('href', baseHref + '?v=' + Date.now());
+    }
+}
+
+// Run logo fix immediately
+fixLogoImages();
+
+// Run again after page fully loads
+window.addEventListener('load', function() {
+    setTimeout(fixLogoImages, 100);
+});
+
+// ============================================
+// NOTIFY ME FUNCTION
+// ============================================
+
 function notifyMe(botName) {
     const botNames = {
         'security': 'Tunix Security',
@@ -50,6 +94,12 @@ function notifyMe(botName) {
     };
     
     const displayName = botNames[botName] || botName;
+    
+    // Remove any existing notifications
+    const existingNotif = document.querySelector('.custom-notification');
+    if (existingNotif) {
+        existingNotif.remove();
+    }
     
     // Create custom notification
     const notification = document.createElement('div');
@@ -70,7 +120,12 @@ function notifyMe(botName) {
     // Auto remove after 5 seconds
     setTimeout(() => {
         if (notification.parentElement) {
-            notification.remove();
+            notification.style.animation = 'fadeOut 0.3s ease forwards';
+            setTimeout(() => {
+                if (notification.parentElement) {
+                    notification.remove();
+                }
+            }, 300);
         }
     }, 5000);
 }
@@ -137,6 +192,7 @@ style.textContent = `
         padding: 0;
         line-height: 1;
         flex-shrink: 0;
+        transition: color 0.3s;
     }
 
     .notification-close:hover {
@@ -167,7 +223,10 @@ style.textContent = `
 `;
 document.head.appendChild(style);
 
-// Smooth scroll for anchor links (if any)
+// ============================================
+// SMOOTH SCROLL FOR ANCHOR LINKS
+// ============================================
+
 document.querySelectorAll('a[href^="#"]').forEach(anchor => {
     anchor.addEventListener('click', function (e) {
         const href = this.getAttribute('href');
@@ -184,10 +243,14 @@ document.querySelectorAll('a[href^="#"]').forEach(anchor => {
     });
 });
 
-// Add hover effects to feature cards
-document.querySelectorAll('.feature-card, .bot-card-detailed, .support-card').forEach(card => {
+// ============================================
+// HOVER EFFECTS
+// ============================================
+
+document.querySelectorAll('.feature-card, .bot-card-detailed, .support-card, .command-category').forEach(card => {
     card.addEventListener('mouseenter', function() {
         this.style.transform = 'translateY(-5px)';
+        this.style.transition = 'transform 0.3s ease';
     });
     
     card.addEventListener('mouseleave', function() {
@@ -195,9 +258,12 @@ document.querySelectorAll('.feature-card, .bot-card-detailed, .support-card').fo
     });
 });
 
-// Copy command to clipboard (for commands page)
+// ============================================
+// COPY COMMAND TO CLIPBOARD
+// ============================================
+
 document.querySelectorAll('.command-item code').forEach(code => {
-    code.addEventListener('click', async function() {
+    code.addEventListener('click', async function(e) {
         const text = this.textContent;
         try {
             await navigator.clipboard.writeText(text);
@@ -205,7 +271,7 @@ document.querySelectorAll('.command-item code').forEach(code => {
             // Show temporary tooltip
             const tooltip = document.createElement('span');
             tooltip.className = 'copy-tooltip';
-            tooltip.textContent = 'Copied!';
+            tooltip.textContent = '✓ Copied!';
             tooltip.style.cssText = `
                 position: absolute;
                 background: #5865F2;
@@ -214,7 +280,8 @@ document.querySelectorAll('.command-item code').forEach(code => {
                 border-radius: 4px;
                 font-size: 0.8rem;
                 margin-left: 0.5rem;
-                animation: fadeOut 1s ease forwards;
+                animation: fadeInOut 1s ease forwards;
+                white-space: nowrap;
             `;
             
             this.style.position = 'relative';
@@ -229,17 +296,44 @@ document.querySelectorAll('.command-item code').forEach(code => {
     });
 });
 
-// Page transition effect
+// Add copy tooltip animation
+const copyStyle = document.createElement('style');
+copyStyle.textContent = `
+    @keyframes fadeInOut {
+        0% { opacity: 0; transform: translateY(5px); }
+        20% { opacity: 1; transform: translateY(0); }
+        80% { opacity: 1; transform: translateY(0); }
+        100% { opacity: 0; transform: translateY(-5px); }
+    }
+    
+    .command-item code {
+        cursor: pointer;
+        transition: background 0.3s;
+    }
+    
+    .command-item code:hover {
+        background: rgba(88, 101, 242, 0.4);
+    }
+`;
+document.head.appendChild(copyStyle);
+
+// ============================================
+// PAGE TRANSITION EFFECT
+// ============================================
+
 document.addEventListener('DOMContentLoaded', () => {
     document.body.style.opacity = '0';
     document.body.style.transition = 'opacity 0.3s ease';
     
     setTimeout(() => {
         document.body.style.opacity = '1';
-    }, 100);
+    }, 50);
 });
 
-// Intersection Observer for fade-in animations
+// ============================================
+// INTERSECTION OBSERVER FOR FADE-IN ANIMATIONS
+// ============================================
+
 const observerOptions = {
     threshold: 0.1,
     rootMargin: '0px 0px -50px 0px'
@@ -256,14 +350,17 @@ const observer = new IntersectionObserver((entries) => {
 }, observerOptions);
 
 // Observe elements for animation
-document.querySelectorAll('.feature-card, .command-category, .bot-card-detailed, .support-card, .faq-item').forEach(el => {
+document.querySelectorAll('.feature-card, .command-category, .bot-card-detailed, .support-card, .faq-item, .feature-item').forEach(el => {
     el.style.opacity = '0';
     el.style.transform = 'translateY(20px)';
     el.style.transition = 'opacity 0.6s ease, transform 0.6s ease';
     observer.observe(el);
 });
 
-// Dynamic year in footer
+// ============================================
+// DYNAMIC YEAR IN FOOTER
+// ============================================
+
 document.addEventListener('DOMContentLoaded', () => {
     const footerYear = document.querySelector('.footer-bottom p');
     if (footerYear) {
@@ -272,48 +369,31 @@ document.addEventListener('DOMContentLoaded', () => {
     }
 });
 
-// Prevent multiple notification buttons from firing multiple times
+// ============================================
+// PREVENT MULTIPLE NOTIFICATION BUTTONS
+// ============================================
+
 document.querySelectorAll('.btn-notify').forEach(btn => {
     btn.addEventListener('click', (e) => {
         e.preventDefault();
-        const botName = btn.getAttribute('onclick')?.match(/'([^']+)'/)?.[1] || 'bot';
+        e.stopPropagation();
+        
+        // Extract bot name from onclick or data attribute
+        let botName = btn.getAttribute('data-bot');
+        if (!botName) {
+            const onclickAttr = btn.getAttribute('onclick');
+            const match = onclickAttr?.match(/'([^']+)'/) || onclickAttr?.match(/"([^"]+)"/);
+            botName = match ? match[1] : 'bot';
+        }
+        
         notifyMe(botName);
     });
 });
 
-// Add loading state to buttons
-document.querySelectorAll('.btn-primary, .btn-secondary').forEach(btn => {
-    btn.addEventListener('click', function(e) {
-        if (this.classList.contains('btn-notify')) return;
-        if (this.getAttribute('href') === '#') {
-            e.preventDefault();
-            return;
-        }
-        
-        // Add loading effect for external links
-        if (this.href && this.href.startsWith('http')) {
-            const originalText = this.textContent;
-            this.textContent = 'Loading...';
-            this.style.opacity = '0.7';
-            this.style.pointerEvents = 'none';
-            
-            setTimeout(() => {
-                this.textContent = originalText;
-                this.style.opacity = '1';
-                this.style.pointerEvents = 'auto';
-            }, 1000);
-        }
-    });
-});
+// ============================================
+// RESPONSIVE COMMANDS TABLE
+// ============================================
 
-// Handle browser back/forward cache
-window.addEventListener('pageshow', (event) => {
-    if (event.persisted) {
-        window.location.reload();
-    }
-});
-
-// Responsive table handling for commands
 function makeCommandsResponsive() {
     if (window.innerWidth <= 768) {
         document.querySelectorAll('.command-item').forEach(item => {
@@ -323,7 +403,9 @@ function makeCommandsResponsive() {
                 item.style.flexDirection = 'column';
                 item.style.alignItems = 'center';
                 item.style.textAlign = 'center';
+                item.style.padding = '1rem';
                 code.style.marginBottom = '0.5rem';
+                code.style.display = 'inline-block';
             }
         });
     } else {
@@ -331,8 +413,12 @@ function makeCommandsResponsive() {
             item.style.flexDirection = 'row';
             item.style.alignItems = 'center';
             item.style.textAlign = 'left';
+            item.style.padding = '0.75rem';
             const code = item.querySelector('code');
-            if (code) code.style.marginBottom = '0';
+            if (code) {
+                code.style.marginBottom = '0';
+                code.style.display = 'inline';
+            }
         });
     }
 }
@@ -341,6 +427,153 @@ function makeCommandsResponsive() {
 window.addEventListener('load', makeCommandsResponsive);
 window.addEventListener('resize', makeCommandsResponsive);
 
-// Console welcome message
+// ============================================
+// HANDLE BROWSER BACK/FORWARD CACHE
+// ============================================
+
+window.addEventListener('pageshow', (event) => {
+    if (event.persisted) {
+        window.location.reload();
+    }
+});
+
+// ============================================
+// CONSOLE WELCOME MESSAGE
+// ============================================
+
 console.log('%c🚀 Tunix Music Bot Website', 'font-size: 20px; color: #5865F2; font-weight: bold;');
 console.log('%cWelcome to Tunix Music Bot! Add our bot to your Discord server for high-quality music playback.', 'color: #b0b0b0; font-size: 14px;');
+console.log('%c📱 ' + window.innerWidth + 'x' + window.innerHeight, 'color: #57F287; font-size: 12px;');
+
+// ============================================
+// ERROR HANDLING FOR MISSING IMAGES
+// ============================================
+
+document.addEventListener('error', function(e) {
+    if (e.target.tagName === 'IMG') {
+        console.warn('⚠️ Image failed to load:', e.target.src);
+        // Try to fix logo if it fails
+        if (e.target.src.includes('mainlogo.png')) {
+            setTimeout(() => {
+                e.target.src = 'public/assets/mainlogo.png?v=' + Date.now();
+            }, 500);
+        }
+    }
+}, true);
+
+// ============================================
+// BUTTON LOADING STATES
+// ============================================
+
+document.querySelectorAll('.btn-primary, .btn-secondary').forEach(btn => {
+    btn.addEventListener('click', function(e) {
+        if (this.classList.contains('btn-notify')) return;
+        if (this.getAttribute('href') === '#') {
+            e.preventDefault();
+            return;
+        }
+        
+        // Add loading effect for external links
+        if (this.href && this.href.startsWith('http') && !this.href.includes('discord.com')) {
+            const originalText = this.textContent;
+            const originalWidth = this.offsetWidth;
+            
+            this.style.minWidth = originalWidth + 'px';
+            this.textContent = 'Loading...';
+            this.style.opacity = '0.7';
+            this.style.pointerEvents = 'none';
+            
+            // Restore after timeout (in case navigation is slow)
+            setTimeout(() => {
+                this.textContent = originalText;
+                this.style.opacity = '1';
+                this.style.pointerEvents = 'auto';
+                this.style.minWidth = '';
+            }, 2000);
+        }
+    });
+});
+
+// ============================================
+// MOBILE DETECTION
+// ============================================
+
+function isMobile() {
+    return window.innerWidth <= 768;
+}
+
+// Add mobile class to body for CSS targeting
+if (isMobile()) {
+    document.body.classList.add('mobile-view');
+}
+
+window.addEventListener('resize', function() {
+    if (isMobile()) {
+        document.body.classList.add('mobile-view');
+    } else {
+        document.body.classList.remove('mobile-view');
+    }
+});
+
+// ============================================
+// SCROLL TO TOP BUTTON (Optional)
+// ============================================
+
+// Create scroll to top button
+const scrollBtn = document.createElement('button');
+scrollBtn.innerHTML = '↑';
+scrollBtn.className = 'scroll-top-btn';
+scrollBtn.style.cssText = `
+    position: fixed;
+    bottom: 20px;
+    right: 20px;
+    width: 40px;
+    height: 40px;
+    border-radius: 50%;
+    background: #5865F2;
+    color: white;
+    border: none;
+    cursor: pointer;
+    font-size: 20px;
+    display: none;
+    align-items: center;
+    justify-content: center;
+    z-index: 9998;
+    box-shadow: 0 4px 10px rgba(88, 101, 242, 0.3);
+    transition: all 0.3s;
+`;
+
+scrollBtn.addEventListener('click', () => {
+    window.scrollTo({ top: 0, behavior: 'smooth' });
+});
+
+scrollBtn.addEventListener('mouseenter', () => {
+    scrollBtn.style.transform = 'scale(1.1)';
+    scrollBtn.style.background = '#4752c4';
+});
+
+scrollBtn.addEventListener('mouseleave', () => {
+    scrollBtn.style.transform = 'scale(1)';
+    scrollBtn.style.background = '#5865F2';
+});
+
+document.body.appendChild(scrollBtn);
+
+// Show/hide scroll button based on scroll position
+window.addEventListener('scroll', () => {
+    if (window.scrollY > 300) {
+        scrollBtn.style.display = 'flex';
+    } else {
+        scrollBtn.style.display = 'none';
+    }
+});
+
+// ============================================
+// EXPORT FUNCTIONS FOR GLOBAL USE
+// ============================================
+
+// Make functions globally available
+window.notifyMe = notifyMe;
+window.fixLogoImages = fixLogoImages;
+
+console.log('✅ Tunix Music Bot script loaded successfully!');
