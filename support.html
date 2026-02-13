@@ -5,10 +5,34 @@
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <title>Support - Tunix Music Bot</title>
     <link rel="stylesheet" href="style.css">
+    <link rel="icon" type="image/x-icon" href="public/assets/mainlogo.png">
 </head>
 <body>
     <!-- Navbar -->
-    <nav class="navbar">...</nav>
+    <nav class="navbar">
+        <div class="nav-container">
+            <div class="nav-logo">
+                <img src="public/assets/mainlogo.png" alt="Tunix Music Bot Logo" class="logo-img">
+                <span class="logo-text">Tunix Music</span>
+            </div>
+            <div class="nav-menu" id="navMenu">
+                <a href="index.html">Home</a>
+                <a href="features.html">Features</a>
+                <a href="commands.html">Commands</a>
+                <a href="more-bots.html">More Bots</a>
+                <a href="support.html" class="active">Support</a>
+                <a href="dashboard.html">Dashboard</a>
+            </div>
+            <div class="nav-buttons">
+                <a href="https://discord.com/oauth2/authorize?client_id=1468659910941343798" class="btn-primary" target="_blank">Add to Discord</a>
+            </div>
+            <div class="hamburger" id="hamburger">
+                <span></span>
+                <span></span>
+                <span></span>
+            </div>
+        </div>
+    </nav>
 
     <!-- Page Header -->
     <section class="page-header">
@@ -25,28 +49,28 @@
                 <div class="support-card">
                     <div class="support-icon">💬</div>
                     <h3>Discord Support</h3>
-                    <p>Join our Discord server for instant help from our team and community</p>
+                    <p>Join our Discord server for instant help from our team and community. Get answers within minutes.</p>
                     <a href="https://discord.gg/KcWjna2x" class="btn-primary" target="_blank">Join Discord</a>
                 </div>
 
                 <div class="support-card">
                     <div class="support-icon">📚</div>
                     <h3>Documentation</h3>
-                    <p>Read our detailed documentation for setup guides and command reference</p>
+                    <p>Read our detailed documentation for setup guides, command reference, and troubleshooting tips.</p>
                     <a href="#" class="btn-secondary">Read Docs</a>
                 </div>
 
                 <div class="support-card">
                     <div class="support-icon">🐛</div>
                     <h3>Report Bug</h3>
-                    <p>Found a bug? Let us know on GitHub or Discord</p>
+                    <p>Found a bug? Let us know on GitHub or Discord so we can fix it quickly and improve the bot.</p>
                     <a href="#" class="btn-secondary">Report Issue</a>
                 </div>
 
                 <div class="support-card">
                     <div class="support-icon">💡</div>
                     <h3>Feature Request</h3>
-                    <p>Have an idea? Suggest new features for future updates</p>
+                    <p>Have an idea? Suggest new features for future updates. We love hearing from our community.</p>
                     <a href="#" class="btn-secondary">Suggest Idea</a>
                 </div>
             </div>
@@ -60,7 +84,7 @@
             <div class="faq-grid">
                 <div class="faq-item">
                     <h3>Is Tunix Music really free?</h3>
-                    <p>Yes! Tunix Music is completely free with no premium tiers or paywalls. All features are available to everyone.</p>
+                    <p>Yes! Tunix Music is completely free with no premium tiers or paywalls. All features are available to everyone forever.</p>
                 </div>
                 <div class="faq-item">
                     <h3>How do I add the bot?</h3>
@@ -68,25 +92,60 @@
                 </div>
                 <div class="faq-item">
                     <h3>What platforms are supported?</h3>
-                    <p>YouTube, Spotify, SoundCloud, Bandcamp, Twitch, and more. We're constantly adding new platforms.</p>
+                    <p>YouTube, Spotify, SoundCloud, Bandcamp, Twitch, and more. We're constantly adding new platforms based on user requests.</p>
                 </div>
                 <div class="faq-item">
                     <h3>Can I save my playlists?</h3>
-                    <p>Yes! Use the /savequeue command to save your current queue and /loadqueue to load it later.</p>
+                    <p>Yes! Use the /savequeue command to save your current queue and /loadqueue to load it later. You can save multiple playlists.</p>
                 </div>
                 <div class="faq-item">
                     <h3>Why is the bot not playing?</h3>
-                    <p>Make sure the bot has permission to connect and speak in your voice channel. Check /help for troubleshooting.</p>
+                    <p>Make sure the bot has permission to connect and speak in your voice channel. Check /help for troubleshooting tips.</p>
                 </div>
                 <div class="faq-item">
                     <h3>How do I report a problem?</h3>
                     <p>Join our Discord support server and open a ticket in the #support channel. We'll help you quickly!</p>
+                </div>
+                <div class="faq-item">
+                    <h3>Can I set up a DJ role?</h3>
+                    <p>Yes! Use the /dj command to assign a role that can control the music. Perfect for community servers.</p>
+                </div>
+                <div class="faq-item">
+                    <h3>What about 24/7 music?</h3>
+                    <p>The bot stays in your voice channel 24/7 if you want. Use /settings to enable 24/7 mode in your server.</p>
                 </div>
             </div>
         </div>
     </section>
 
     <!-- Footer -->
-    <footer class="footer">...</footer>
+    <footer class="footer">
+        <div class="container">
+            <div class="footer-content">
+                <div class="footer-logo">
+                    <img src="public/assets/mainlogo.png" alt="Tunix Music Bot" class="footer-logo-img">
+                    <span>Tunix Music Bot</span>
+                </div>
+                <div class="footer-links">
+                    <a href="index.html">Home</a>
+                    <a href="features.html">Features</a>
+                    <a href="commands.html">Commands</a>
+                    <a href="more-bots.html">More Bots</a>
+                    <a href="support.html">Support</a>
+                    <a href="dashboard.html">Dashboard</a>
+                </div>
+                <div class="footer-social">
+                    <a href="https://discord.gg/KcWjna2x" target="_blank">Discord</a>
+                    <a href="#" target="_blank">Twitter</a>
+                    <a href="#" target="_blank">GitHub</a>
+                </div>
+            </div>
+            <div class="footer-bottom">
+                <p>© 2024 Tunix Music Bot. All rights reserved. Free forever.</p>
+            </div>
+        </div>
+    </footer>
+
+    <script src="script.js"></script>
 </body>
 </html>
